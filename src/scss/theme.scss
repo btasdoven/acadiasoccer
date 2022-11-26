@@ -1,0 +1,9 @@
+$theme-colors: (
+  "primary":  rgb(6, 130, 78), //#0074d9,
+//   "custom-color": #0074d9,
+);
+
+@import "./Common";
+
+@import "~bootstrap/scss/bootstrap";
+@import '~react-bootstrap-table-next/dist/react-bootstrap-table2.min';

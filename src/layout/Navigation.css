@@ -1,0 +1,32 @@
+.navbar-toggler {
+  border: 0 !important;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
+
+.nav-link:hover {
+  color: var(--primary) !important;
+}
+
+.nav-link.active {
+  border-radius: 0.25rem;
+  color: var(--primary) !important;
+  font-weight: 500;
+}
+
+.nav-link.disabled {
+  border-radius: 0.25rem;
+  color: #a6b5ad !important;
+}
+
+.nav-link {
+  border-radius: 0.25rem;
+  color: var(--dark) !important;
+  /* color: #1a1a1a !important; */
+}
+
+.nav-item.show.dropdown > .dropdown-menu {
+  right: 0 !important;
+  left: auto !important;
+}
