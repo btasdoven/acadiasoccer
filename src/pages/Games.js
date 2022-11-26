@@ -41,6 +41,7 @@ function Customers() {
 
               return (
                 <ListGroup.Item 
+                  action
                   key={game.id} 
                   onClick={handleOnClick(game.id)}
                   className="d-flex justify-content-between align-items-center"

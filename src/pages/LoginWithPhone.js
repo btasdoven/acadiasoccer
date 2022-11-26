@@ -82,6 +82,14 @@ const FormikButton = ({id, formik, defaultText, submittingText}) => {
   )
 }
 
+// To address https://github.com/FirebaseExtended/reactfire/issues/485
+export const clearFirestoreCache = () => {
+  const map = global['_reactFirePreloadedObservables'];
+  Array.from(map.keys()).forEach(
+    (key) => key.includes('firestore') && map.delete(key),
+  );
+};
+
 function Login() {
   const { loginWithPhoneNumber } = useAuth();
   const [error, setError] = useState(undefined);
@@ -137,6 +145,7 @@ function Login() {
         if (!confirmationFn) {
           setError("Confirmation was not sent. Go back to Step 1.")
         } else {
+          clearFirestoreCache();
           await confirmationFn.confirm(values.verificationCode);
         }
       } catch (error) {
@@ -144,8 +153,6 @@ function Login() {
       }
     },
   });
-
-  // console.log(step, formikStep1);
 
   return (
     <>

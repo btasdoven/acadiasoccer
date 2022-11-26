@@ -169,11 +169,6 @@ function AdminPanel() {
                 {formik.isSubmitting ? "Creating..." : "Create New Game"}
               </Button>
             </Form>
-
-
-            <h2 className="mb-4">
-              All
-            </h2>
           </>
         }
       </div>

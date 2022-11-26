@@ -22,15 +22,16 @@ function Customers() {
           <ListGroup className="mt-4 mlr-clear">
             {players.filter(p => p.hidden !== true).sort((a, b) => a.joinedAt < b.joinedAt ? 1 : -1).map(player => 
               <ListGroup.Item 
+                action
                 key={player.id} 
                 className="d-flex justify-content-between align-items-center"
                 style={{flexDirection: 'column'}}
               >
-                <div class="d-flex w-100 justify-content-between">
+                <div className="d-flex w-100 justify-content-between">
                   {player.name}
                   <span><small>{player.joinedAt && <>member since <Moment unix fromNow>{parseInt(player.joinedAt/1000)}</Moment></>}</small></span>
                 </div>
-                {user && user.hidden && <><div><small style={{float: 'left'}}>id: {player.id}</small></div></>}
+                {user && user.hidden && <><div className="d-flex w-100 justify-content-end"><small>ID: {player.id}</small></div></>}
               </ListGroup.Item>  
             )}
           </ListGroup>

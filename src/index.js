@@ -21,24 +21,23 @@ const firebaseConfig = {
 function FirebaseComponents() {
   const app = useFirebaseApp(); 
   const database = getFirestore(app);
-  // const auth = getAuth(app);
 
   return (
-    <AuthProvider>
       <FirestoreProvider sdk={database}>
           <UserProvider>
             <App />
           </UserProvider>
       </FirestoreProvider>
-    </AuthProvider>
   );
 }
 
 ReactDOM.render(
   <React.StrictMode>
+    <AuthProvider>
       <FirebaseAppProvider firebaseConfig={firebaseConfig}>
         <FirebaseComponents />
       </FirebaseAppProvider>
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

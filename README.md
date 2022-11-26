@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - package.json set homepage to from "." to "". Otherwise static files get relative path and refreshing page on a subpath fails to load the files.
 - 100vh does not work on iOS. Need to add -web...-fill-... Check Common.css
-- Auth/User context fixes. UpdateProfile page
+- Auth/User context fixes.
 
 ## Available Scripts
 

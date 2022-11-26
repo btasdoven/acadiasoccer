@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 
 function UnsignedRoute({ children }) {
   const { authUser } = useAuth();
-
+  
   if (!authUser) {
     return children;
   }

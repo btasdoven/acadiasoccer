@@ -1,23 +1,22 @@
 import React, { useContext } from "react";
 import { useAuth } from "../context/AuthContext";
-import { doc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 import { useFirestore, useFirestoreDocData } from 'reactfire';
 import Spinner from 'react-bootstrap/Spinner';
 import Container from 'react-bootstrap/Container';
 import UpdateProfile from '../pages/UpdateProfile';
+import { useEffect } from "react";
 
 const UserContext = React.createContext();
 
 const UserProviderInt = ({ children, authUser }) => {
-
   const firestore = useFirestore();
-  console.log(firestore, authUser);
 
   const ref = doc(firestore, 'users', authUser.uid);
   const ret = useFirestoreDocData(ref);
   const { status, data: user } = ret;
   const loaded = user !== undefined;
-  
+
   if (status === 'success' && !user) {
     // user logged in but its profile not yet created in db
     return (
@@ -53,7 +52,7 @@ export function UserProvider({ children }) {
   }
 
   //
-  // If no auth, then no user context as well.
+  // If no auth, then no user as well.
   //
 
   const value = {
